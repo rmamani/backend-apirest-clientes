@@ -2,6 +2,7 @@ package com.gestion.clientes.controller;
 
 
 import com.gestion.clientes.dto.ReferenciaDto;
+import com.gestion.clientes.exception.ModeloNotFoundException;
 import com.gestion.clientes.model.Referencia;
 import com.gestion.clientes.service.ReferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/referencia")
@@ -31,6 +33,16 @@ public class ReferenciaController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Referencia registrar(@RequestBody ReferenciaDto cli) throws ParseException {
         return referenciaService.crear(cli);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        Optional<Referencia> referencia = referenciaService.buscarPorId(id);
+        if (!referencia.isPresent()) {
+            throw new ModeloNotFoundException("ID NO ENCONTRADO: " + id);
+        } else {
+            referenciaService.eliminar(id);
+        }
     }
 }
 

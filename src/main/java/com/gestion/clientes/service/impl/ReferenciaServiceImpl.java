@@ -47,4 +47,14 @@ public class ReferenciaServiceImpl implements ReferenciaService {
         clienteDao.save(cliente);
         return null;
     }
+
+    @Override
+    public void eliminar(int id) {
+        referenciaDao.deleteById(id);
+    }
+
+    @Override
+    public Optional<Referencia> buscarPorId(int id) {
+        return referenciaDao.findById(id);
+    }
 }

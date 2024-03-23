@@ -33,18 +33,14 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private PersonaDao personaDao;
 
-    EntityManager entityManager;
-
     @Override
     public List<Cliente> listar() {
         return clienteDao.findAll();
     }
 
     @Override
-    public String listarAccesibilidad(int idCliente) {
-        Query query = entityManager.createQuery("SELECT COUNT(*) FROM referencia WHERE id_cliente = ?1 AND estado = 'ACTIVO'");
-        query.setParameter(1, idCliente);
-        long nroReferencias = (long) query.getSingleResult();
+     public String listarAccesibilidad(int idCliente) {
+        long nroReferencias = (long) clienteDao.listarAccesibilidad(idCliente);
         if(nroReferencias>=2)
             return "BUENA";
         else if(nroReferencias==1)

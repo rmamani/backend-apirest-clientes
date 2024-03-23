@@ -34,7 +34,7 @@ public class ClienteController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public String listarAccesibilidad(@PathVariable("id") Integer id){
+    public String listarAccesibilidad(@PathVariable("id") int id){
 
         return clienteService.listarAccesibilidad(id);
     }
