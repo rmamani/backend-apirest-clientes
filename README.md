@@ -11,8 +11,8 @@ Api´sRest para la evaluacion de accesibilidad de clientes
 - El inicio de Base de datos no depende de ninguna instalacion adicional, se crea internamente al iniciar el proyecto
 - puerto habilitado 8080
 # servicios
-GET localhost:8080/personas - Listado de personas
-POST localhost:8080/personas - Registrar una persona
+- GET localhost:8080/personas - Listado de personas
+- POST localhost:8080/personas - Registrar una persona
 {      
     "nombre": "Micaela",
     "apellidoPaterno": "Gallardo",
@@ -21,8 +21,8 @@ POST localhost:8080/personas - Registrar una persona
     "direccion": "Zona Cementerio avenida 23 nro 43",
     "ci": "16161616"
 }
-GET http://localhost:8080/clientes - Listado de clientes
-POST http://localhost:8080/clientes - Registrar cliente
+- GET http://localhost:8080/clientes - Listado de clientes
+- POST http://localhost:8080/clientes - Registrar cliente
 {
         "email": "cliente@correo.com.bo",
         "telefono": "2863656",
@@ -37,7 +37,7 @@ POST http://localhost:8080/clientes - Registrar cliente
             "ci": "23231000"}
         
 }
-POST http://localhost:8080/referencia - adicionar referencia de un cliente, debemos ingresar el id del cliente
+- POST http://localhost:8080/referencia - adicionar referencia de un cliente, debemos ingresar el id del cliente
 {      
     "idCliente": "1",
     "referenciaList": [
@@ -50,8 +50,8 @@ POST http://localhost:8080/referencia - adicionar referencia de un cliente, debe
     ]
 }
 
-GET http://localhost:8080/referencia
-DELETE http://localhost:8080/referencia/1  - Se pasa como parametro el Id de referencia en caso de no existir muestra el mensaje ID NO ENCONTRADO
+- GET http://localhost:8080/referencia
+- DELETE http://localhost:8080/referencia/1  - Se pasa como parametro el Id de referencia en caso de no existir muestra el mensaje ID NO ENCONTRADO
 # Ejecución del proyecto
 - Clonar el proyecto y ejecutar como un proyecto spring
 - Para IntelliJ
